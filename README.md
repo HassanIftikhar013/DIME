@@ -72,7 +72,19 @@ Requirements:
 Install via:
 
 ```bash
-pip install torch numpy scipy nibabel matplotlib scikit-learn pandas plotly```bash
+pip install torch numpy scipy nibabel matplotlib scikit-learn pandas plotly```
 
 
-## Usage
+
+### Usage
+
+Each study includes a separate Jupyter notebook:
+- Study1(a)-Notebook.ipynb
+- Study1(b)-Notebook.ipynb
+- Study2-Notebook.ipynb
+- Study3-InVivo-Notebook.ipynb
+
+### To reproduce results:
+- Open the desired notebook
+- Ensure trained_model.pth is in the root directory
+- Run all cells sequentially
