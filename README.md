@@ -3,7 +3,7 @@
 ### Model & Sample Data Release for Reproducibility
 
 This repository contains the **trained DIME model**, along with **sample displacement fields**, **ground-truth stiffness maps**, and **notebooks** for reproducing the experiments described in the DIME paper.  
-The goal of this repository is to provide **transparent reproducibility** for reviewers and researchers by allowing them to run the exact inference pipeline used in the manuscript.
+The goal of this repository is to provide transparent reproducibility for reviewers and researchers by allowing them to run the exact inference pipeline used in the manuscript.
 
 ---
 
@@ -21,13 +21,13 @@ The method takes as input:
 
 This repository includes:
 
-- ✔ `trained_model.pth` – the trained DIME network  
-- ✔ Sample datasets for each study  
-- ✔ Four fully runnable notebooks  
-- ✔ Patch-based inference modules  
-- ✔ Custom AWAVE and AAASMO colormaps  
-- ✔ Statistical evaluation (mean, SD, Excel export)  
-- ✔ Reconstruction & visualization utilities  
+-  `trained_model.pth` – the trained DIME network  
+-  Sample datasets for each study  
+-  Four fully runnable notebooks  
+-  Patch-based inference modules  
+-  Custom AWAVE and AAASMO colormaps  
+-  Statistical evaluation (mean, SD, Excel export)  
+-  Reconstruction & visualization utilities  
 
 ---
 
