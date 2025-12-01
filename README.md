@@ -69,13 +69,6 @@ Requirements:
 - scikit-learn
 - pandas
 
-Install via:
-
-```bash
-pip install torch numpy scipy nibabel matplotlib scikit-learn pandas plotly ```bash
-
-
-
 ### Usage
 
 Each study includes a separate Jupyter notebook:
