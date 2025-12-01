@@ -72,7 +72,7 @@ Requirements:
 Install via:
 
 ```bash
-pip install torch numpy scipy nibabel matplotlib scikit-learn pandas plotly```
+pip install torch numpy scipy nibabel matplotlib scikit-learn pandas plotly ```bash
 
 
 
