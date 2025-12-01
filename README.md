@@ -1,35 +1,113 @@
-# 🧠 DIME: Deep-Learning–Driven Inversion Framework for MRE  
-### Author: Hassan Iftikhar  
-### Model & Sample Data Release for Reproducibility
+# 🧠 Deep Image-Based Modulus Estimator (DIME)
+<h2>(Deep-Learning–Driven Inversion Framework for Magnetic Resonance Elastography)</h2>
 
-This repository contains the **trained DIME model**, along with **sample displacement fields**, **ground-truth stiffness maps**, and **notebooks** for reproducing the experiments described in the DIME paper.  
-The goal of this repository is to provide transparent reproducibility for reviewers and researchers by allowing them to run the exact inference pipeline used in the manuscript.
+This repository contains the implementation of the DIME inversion algorithm used in our research on **MRE-based shear modulus estimation**. DIME is a physics-informed, deep-learning–driven inversion method designed to improve the robustness and quality of Magnetic Resonance Elastography (MRE) reconstructions, especially in scenarios where traditional inversion methods (such as MMDI) struggle.
 
----
+This repository provides:
 
-## 📌 Overview
+- The **trained DIME model (`trained_model.pth`)**
+- **Sample displacement field data** for each study
+- **Ground-truth stiffness maps**
+- **Fully executable Jupyter notebooks** for reproducing all results
 
-**DIME (Deep Image-based Modulus Estimator)** is a patch-based deep learning inversion framework for **Magnetic Resonance Elastography (MRE)**.  
-The method takes as input:
-
-- The **displacement field (DF)**  
-- First harmonic **real** and **imaginary** components  
-- Each channel is individually rescaled to **0–4095**  
-- Input is fed to the model patch-by-patch  
-- A full-resolution stiffness map is reconstructed  
-- Results are compared against **ground truth** and **MMDI**
-
-This repository includes:
-
--  `trained_model.pth` – the trained DIME network  
--  Sample datasets for each study  
--  Four fully runnable notebooks  
--  Patch-based inference modules  
--  Custom AWAVE and AAASMO colormaps  
--  Statistical evaluation (mean, SD, Excel export)  
--  Reconstruction & visualization utilities  
+Each notebook demonstrates the full workflow:  
+**loading displacement fields → preprocessing → patch-based inference → visualization → quantitative evaluation.**
 
 ---
 
-## 📁 Repository Structure
+## About the Project
 
+Magnetic Resonance Elastography (MRE) is widely used to assess tissue stiffness, but conventional inversion algorithms (e.g., MMDI) rely on simplifying assumptions that often introduce noise, inaccuracy, and spatial variability.  
+To address these limitations, our work introduces **DIME** — a **deep-learning inversion framework** trained on finite-element (FEM)–generated displacement–stiffness pairs.
+
+DIME learns a direct mapping from **first-harmonic displacement fields** to **shear modulus**, enabling:
+
+- Improved noise robustness  
+- Superior boundary preservation  
+- Spatially consistent reconstructions  
+- Generalization to unseen anatomical geometries and real in-vivo data  
+
+The repository contains **four studies**, each demonstrating the performance of DIME under different experimental conditions.
+
+### Key Features
+
+- End-to-end **patch-based inversion** for 2D stiffness estimation  
+- **FFT-based preprocessing** for raw in-vivo displacement fields   
+- Quantitative comparison against:
+  - **Ground Truth (GT)**
+  - **MMDI** (where applicable)
+- Support for heterogeneous phantoms and anatomically informed liver simulations  
+- Works on both **synthetic FEM data** and **in-vivo liver MRE**  
+- Fully reproducible using the included **Jupyter notebooks**
+
+### Included Studies
+
+- **Study 1(a):** Homogeneous FEM phantoms  
+- **Study 1(b):** Heterogeneous FEM phantoms  
+- **Study 2:** Anatomy-informed liver phantom  
+- **Study 3:** In-vivo liver MRE (clinical acquisition)
+
+Each study folder contains sample data and one notebook demonstrating the full inference pipeline.
+
+---
+
+## Getting Started
+
+To use the reconstruction notebooks:
+
+### Installation
+
+Requirements:
+
+- Python 3.8+
+- PyTorch
+- NumPy
+- SciPy
+- Nibabel
+- Matplotlib
+- Plotly (optional)
+- scikit-learn
+- pandas
+
+Install via:
+
+```bash
+pip install torch numpy scipy nibabel matplotlib scikit-learn pandas plotly
+
+Usage
+
+Each study includes a separate Jupyter notebook:
+
+Study1(a)-Notebook.ipynb
+
+Study1(b)-Notebook.ipynb
+
+Study2-Notebook.ipynb
+
+Study3-InVivo-Notebook.ipynb
+
+To reproduce results:
+
+Open the desired notebook
+
+Ensure trained_model.pth is in the root directory
+
+Run all cells sequentially
+
+Each notebook performs:
+
+Loading displacement field data (.nii or .mat)
+
+FFT-based extraction of first-harmonic real and imaginary components
+
+Rescaling to 0–4095
+
+Patch-based DIME inference
+
+Heatmap visualization using AWAVE/AAASMO colormaps
+
+(Optional) Region-wise quantitative analysis
+
+Saving reconstructed stiffness maps
+
+No manual setup is required — sample data is fully included.
