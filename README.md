@@ -74,40 +74,4 @@ Install via:
 ```bash
 pip install torch numpy scipy nibabel matplotlib scikit-learn pandas plotly
 
-Usage
 
-Each study includes a separate Jupyter notebook:
-
-Study1(a)-Notebook.ipynb
-
-Study1(b)-Notebook.ipynb
-
-Study2-Notebook.ipynb
-
-Study3-InVivo-Notebook.ipynb
-
-To reproduce results:
-
-Open the desired notebook
-
-Ensure trained_model.pth is in the root directory
-
-Run all cells sequentially
-
-Each notebook performs:
-
-Loading displacement field data (.nii or .mat)
-
-FFT-based extraction of first-harmonic real and imaginary components
-
-Rescaling to 0–4095
-
-Patch-based DIME inference
-
-Heatmap visualization using AWAVE/AAASMO colormaps
-
-(Optional) Region-wise quantitative analysis
-
-Saving reconstructed stiffness maps
-
-No manual setup is required — sample data is fully included.
